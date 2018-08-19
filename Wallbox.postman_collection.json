@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "916cf917-36c8-44c2-958b-bcbbb0ea6234",
+		"name": "Wallbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "84d9ecfc-919a-4615-9736-9fb0595c5819",
+			"name": "Wallbox test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "MTUzNDYzMjY0Mg=="
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/?activation_length=28&countries[]=CN&countries[]=PT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "activation_length",
+							"value": "28"
+						},
+						{
+							"key": "countries[]",
+							"value": "CN"
+						},
+						{
+							"key": "countries[]",
+							"value": "PT"
+						}
+					]
+				},
+				"description": "Wallbox test"
+			},
+			"response": []
+		}
+	]
+}
