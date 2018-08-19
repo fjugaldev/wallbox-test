@@ -97,7 +97,7 @@ class Security
             $dateToken->setTimestamp($this->decodeToken());
 
             // Return true or false if the token meets validation requirements.
-            return date_diff($dateToken, new \DateTime())->format('%h') < 1;
+            return date_diff($dateToken, new \DateTime())->format('%h') <= 1;
 
         } catch (\Exception $e) {
             throw new \Exception("The token is not valid or is fake. Error: " . $e->getMessage());

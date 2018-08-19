@@ -8,9 +8,6 @@ namespace WallboxApp\PhpTest\Filter;
  */
 class Wallbox
 {
-    /** @var string DATA */
-    protected const DATA = WALLBOX_APP_DATA_FOLDER.'/users.csv';
-
     /** @var int */
     protected $activationLength;
 
@@ -33,14 +30,13 @@ class Wallbox
     /**
      * Filter the data based on the passed parameters.
      *
+     * @param array $users
      * @return array
      * @throws \Exception
      */
-    public function filterData(): array
+    public function filterData(array $users): array
     {
         try {
-            // Get array of users from CSV file.
-            $users = array_map('str_getcsv', file(self::DATA));
             $filteredStays = $users;
 
             // Filter array by countries.

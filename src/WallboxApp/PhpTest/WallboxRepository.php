@@ -11,6 +11,9 @@ use WallboxApp\PhpTest\Filter\Wallbox;
  * @package WallboxApp\PhpTest
  */
 class WallboxRepository {
+    /** @var string DATA */
+    protected const DATA = WALLBOX_APP_DATA_FOLDER.'/users.csv';
+
     /**
      * Returns all the stays that matches the filter
      *
@@ -22,11 +25,19 @@ class WallboxRepository {
     {
         try {
             // Filter data based on the Wallbox filter class.
-           return $filter->filterData();
+           return $filter->filterData(self::getUsersData());
 
         } catch (\Exception $e) {
             // Throw an exception.
             throw new \Exception($e->getMessage());
         }
+    }
+
+    /**
+     * @return array
+     */
+    protected static function getUsersData(): array {
+        // Get array of users from CSV file.
+        return array_map('str_getcsv', file(self::DATA));
     }
 }
